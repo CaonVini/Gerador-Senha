@@ -8,11 +8,14 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+
     <h1>Gerando Senhas</h1>
+
+
     <div>
         <input type="text" placeholder="Aqui vai a senha" name="senha">
         <button onclick="gerarSenha()">🔑 Gerar Senha</button>
-        <button>🔒 Verificar Senha</button>
+        <button onclick="verificarSenha()">🔒 Verificar Senha</button>
     </div>
 
 
@@ -31,6 +34,19 @@
             entradaSenha.value = senha;
         }
 
+
+        function verificarSenha() {
+            const entradaSenha = document.querySelector("input");
+            const titulo = document.querySelector("h1");
+            const tamanho = entradaSenha.value.length
+
+            if(tamanho < 4)
+                titulo.innerHTML = "Senha Curta!"
+            else if (tamanho < 8)
+                titulo.innerHTML = "Senha Média!"
+            else
+                titulo.innerHTML = "Senha longa!"
+        }
     
     </script>
 </body>
